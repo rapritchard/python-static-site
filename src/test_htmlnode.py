@@ -18,3 +18,6 @@ class TestHTMLNode(unittest.TestCase):
     def test_repr(self):
         node = HTMLNode("div", "Hello, World!", props={"class": "greeting"})
         self.assertEqual(repr(node), "HTMLNode(div, Hello, World!, None, {'class': 'greeting'})")
+        
+if __name__ == "__main__":
+    unittest.main()
