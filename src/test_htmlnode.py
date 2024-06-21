@@ -16,5 +16,5 @@ class TestHTMLNode(unittest.TestCase):
         self.assertEqual(node.props_to_html(), "")
         
     def test_repr(self):
-        node = HTMLNode("a", "Hello, World!", props={"href": "http://localhost:8888"})
-        self.assertEqual(repr(node), "HTMLNode(a, Hello, World!, None, {'href': 'http://localhost:8888'})")
+        node = HTMLNode("div", "Hello, World!", props={"class": "greeting"})
+        self.assertEqual(repr(node), "HTMLNode(div, Hello, World!, None, {'class': 'greeting'})")
