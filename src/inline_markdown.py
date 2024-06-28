@@ -1,5 +1,14 @@
 import re
-from textnode import (TextNode, text_type_text, text_type_image, text_type_link)
+from textnode import (TextNode, text_type_text, text_type_image, text_type_link, text_type_code, text_type_italic, text_type_bold)
+
+def text_to_textnodes(text):
+    new_nodes = [TextNode(text, text_type_text)]
+    new_nodes = split_nodes_delimiter(new_nodes, "**", text_type_bold)
+    new_nodes = split_nodes_delimiter(new_nodes, "*", text_type_italic)
+    new_nodes = split_nodes_delimiter(new_nodes, "`", text_type_code)
+    new_nodes = split_nodes_image(new_nodes)
+    new_nodes = split_nodes_link(new_nodes)
+    return new_nodes
 
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
     new_nodes = []
