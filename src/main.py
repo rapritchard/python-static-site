@@ -1,8 +1,14 @@
-from textnode import TextNode
-from markdown_blocks import markdown_to_html_node
+import os
+import shutil
+from copy_static import (copy_files_recursive, public_dir)
+                
 def main():
-    text_node = TextNode("Hello, World!", "bold", "http://localhost:8888")
+    if os.path.exists(public_dir):
+        shutil.rmtree(public_dir)
+        print(f'{public_dir} directory deleted')
     
-    print(text_node)
- 
-main()
+    print("Starting the directory copy process")
+    copy_files_recursive()
+
+if __name__ == '__main__':
+    main()
