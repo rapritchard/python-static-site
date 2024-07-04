@@ -104,7 +104,7 @@ def olist_to_html_node(block):
     return ParentNode("ol", items)
 
 def code_to_html_node(block):
-    if not block.startsWith("```") or not block.endsWith("```"):
+    if not block.startswith("```") or not block.endswith("```"):
         raise ValueError("Invalid code block incorrect format")
     text = block[4:-3]
     code = ParentNode("code", text_to_children(text))

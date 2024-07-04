@@ -1,10 +1,7 @@
 import os
 import shutil
 
-public_dir = './public'
-base_dir = './static'
-
-def copy_files_recursive(src_dir=base_dir, target_dir=public_dir):
+def copy_files_recursive(src_dir, target_dir):
     if not os.path.exists(target_dir):
         os.mkdir(target_dir)
         print(f'{target_dir} directory created')
