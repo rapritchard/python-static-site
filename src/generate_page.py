@@ -37,7 +37,6 @@ def generate_page_recursive(dir_path_content, template_path, dest_dir_path):
         for item in os.listdir(dir_path_content):
             src_path = Path(dir_path_content, item)
             dest_path = Path(dest_dir_path, os.path.splitext(item)[0])
-            print(f" * {src_path} -> {dest_path}")
             if os.path.isdir(src_path):
                 generate_page_recursive(src_path, template_path, dest_path)
             elif os.path.isfile(src_path):
