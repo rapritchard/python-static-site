@@ -2,16 +2,11 @@ import os
 from markdown_blocks import (markdown_to_html_node)
 
 def extract_title(markdown):
-    title = ''
     for line in markdown.split('\n'):
         if line.startswith('# '):
-            title = line[2:]
-            break
- 
-    if not title:
-        raise ValueError('Title not found')
+            return line[2:]
+    raise ValueError('Title not found')
     
-    return title
 
 def generate_page(from_path, template_path, dest_path):
     print(f"Generating page from {from_path} -> {dest_path}, using:  {template_path}")
