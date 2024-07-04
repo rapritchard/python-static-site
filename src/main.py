@@ -1,7 +1,7 @@
 import os
 import shutil
 from copy_static import copy_files_recursive
-from generate_page import generate_page
+from generate_page import generate_page_recursive
 
 default_content_dir = 'content/'
 default_public_dir = 'public/'
@@ -14,7 +14,7 @@ def main():
     
     print("Starting the directory copy process")
     copy_files_recursive(default_base_dir, default_public_dir)
-    generate_page(f'{default_content_dir}index.md', 'template.html', f'{default_public_dir}index.html')
+    generate_page_recursive(f'{default_content_dir}', 'template.html', f'{default_public_dir}')
 
 if __name__ == '__main__':
     main()
